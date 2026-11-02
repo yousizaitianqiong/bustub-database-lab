@@ -37,6 +37,8 @@ LRU-K 为每个帧保存最多 K 次访问时间，逻辑时钟在持锁状态�
 
 工具链为 GCC 13.1、CMake 3.28.1、Clang Format/Tidy 14.0.6。原始仓库在 GCC 13 下出现第三方 fmt 的 `dangling-reference` 和原有时间类型的 `format-truncation` 警告升错。因此验收命令仅对这两个既有警告取消 `-Werror`，保留警告输出和其他错误检查；源码不因这两个兼容问题而改动。
 
+Clang Tidy 的独立安装包没有附带基础头文件。本次补齐 LLVM 官方 14.0.6 源码中的 `clang/lib/Headers`，安装到工具对应的 `lib/clang/14.0.6/include` 资源目录；工具包和头文件来源及 SHA-256 随验收证据保存。
+
 远程项目目录：`/yhfs/users/wenyifan/database-lab/p1-20261102-01a19a5e`。各候选版本使用独立源码目录，普通 Debug、ASan/UBSan、TSan 和干净基线复测使用独立构建目录。
 
 ```bash
