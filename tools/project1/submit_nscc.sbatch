@@ -26,7 +26,7 @@ cmake --version > "$run_dir/cmake.txt"
   src/buffer/lru_k_replacer.cpp src/include/buffer/buffer_pool_manager_instance.h \
   src/buffer/buffer_pool_manager_instance.cpp) > "$run_dir/source-sha256.txt"
 if (( $# == 0 )); then
-  set -- debug memory thread quality package
+  set -- debug quality memory thread package
 fi
 for phase in "$@"; do
   build_dir="$p1_root/build-$revision-$phase"
